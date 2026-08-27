@@ -52,7 +52,7 @@ def render_article(manifest: dict, media_names: dict[str, str]) -> str:
     return f'''<!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title} — Сказка на ночь</title><link rel="stylesheet" href="../style.css"></head>
-<body><main class="story"><p><a href="../index.html">← Все сказки</a></p><h1>{title}</h1>{author_html}
+<body><main class="story"><h1>{title}</h1>{author_html}
 {''.join(blocks)}
 <footer><a href="https://t.me/SKAZKA_NA_N0CH">Сказка на ночь</a></footer></main></body></html>'''
 
