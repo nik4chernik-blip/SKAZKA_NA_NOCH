@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import html
 import json
+import re
 import shutil
 from pathlib import Path
 
@@ -28,6 +29,13 @@ def esc(value: str) -> str:
     return html.escape(value, quote=True)
 
 
+def clean_story_html(value: str) -> str:
+    """Remove Telegraph's moderation/reporting UI accidentally captured by parsers."""
+    value = re.split(r"<p>\s*Report Page\s*</p>", value, maxsplit=1, flags=re.I)[0]
+    value = re.sub(r"<p>\s*(?:Please submit your DMCA takedown request to|Cancel|Report)\b.*?</p>", "", value, flags=re.I | re.S)
+    return value
+
+
 def render_article(manifest: dict, media_names: dict[str, str]) -> str:
     blocks: list[str] = []
     for block in manifest.get("blocks", []):
@@ -43,7 +51,7 @@ def render_article(manifest: dict, media_names: dict[str, str]) -> str:
                 block_html += f"<figcaption>{esc(caption)}</figcaption>"
             blocks.append(block_html + "</figure>")
         else:
-            rendered = str(block.get("html") or "")
+            rendered = clean_story_html(str(block.get("html") or ""))
             if rendered:
                 blocks.append(rendered)
     title = esc(str(manifest.get("title") or "Без названия"))
