@@ -1,11 +1,9 @@
-* { box-sizing: border-box; }
-body { margin: 0; background: #faf8f4; color: #2e2a27; font: 18px/1.7 Georgia, serif; }
-.story { max-width: 820px; margin: 0 auto; padding: 28px 20px 60px; }
-a { color: #8b4d2e; }
-h1 { font-size: 2.2rem; line-height: 1.2; margin: 22px 0 8px; }
-.author { margin: 0 0 28px; color: #665950; }
-figure { margin: 26px 0; text-align: center; }
-figure img { max-width: 100%; height: auto; border-radius: 8px; }
-figcaption { color: #76685f; font-size: .9rem; }
-footer { margin-top: 42px; padding-top: 18px; border-top: 1px solid #ddd2c9; }
-li { margin: 8px 0; }
+body { margin: 0; background: #fff; color: rgba(0,0,0,.8); font: 18px/1.58 Georgia, Cambria, 'Times New Roman', serif; }
+.story { max-width: 640px; margin: 0 auto; padding: 0 0 40px; }
+.story h1 { font-family: Arial, sans-serif; font-weight: 700; font-size: 32px; line-height: 34px; margin: 21px 21px 12px; }
+.story p { margin: 0 21px 12px; word-wrap: break-word; white-space: pre-wrap; }
+.story a { color: inherit; text-decoration: none; border-bottom: .1em solid rgba(0,0,0,.7); }
+.story figure { margin: 0 21px 16px; padding: 0; text-align: center; }
+.story figure img { max-width: 100%; height: auto; vertical-align: top; border-radius: 0; }
+.story figcaption { font-family: Arial, sans-serif; font-size: 15px; color: #79828b; padding: 12px 21px 0; line-height: 18px; }
+.story footer { margin: 42px 21px 0; padding-top: 18px; border-top: 1px solid #ddd; }
